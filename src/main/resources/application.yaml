@@ -1,8 +1,4 @@
 server:
   port: 8887
 
-person:
-  name: gg
-  birth: 2020/3/3
-  maps: {k1: v1}
-  lists: [code,music]
+
