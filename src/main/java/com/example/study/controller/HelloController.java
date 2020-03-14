@@ -14,7 +14,7 @@ import java.util.Arrays;
 @Controller
 public class HelloController {
 
-    @RequestMapping("/")
+    @RequestMapping({"/","index.html"})
     public String hello(Model model){
         model.addAttribute("msg","GG nb");
         model.addAttribute("users", Arrays.asList("gg","GG","Gg"));
