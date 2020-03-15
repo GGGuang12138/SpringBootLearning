@@ -1,8 +1,10 @@
 package com.example.study.dao;
 
 import com.example.study.pojo.Department;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,10 +12,13 @@ import java.util.Map;
  * Date on 2020/3/13  9:36 下午
  */
 //部门dao
+@Repository
 public class DepartmentDao {
     //模拟数据库
-    private static Map<Integer,Department> departments;
+    private static Map<Integer,Department> departments = null;
     static {
+        departments = new HashMap<Integer,Department>();//创建部门表
+
         departments.put(101,new Department(101,"1号部门"));
         departments.put(102,new Department(102,"2号部门"));
         departments.put(103,new Department(103,"3号部门"));

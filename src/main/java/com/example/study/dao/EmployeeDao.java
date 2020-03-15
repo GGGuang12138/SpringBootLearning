@@ -3,7 +3,12 @@ package com.example.study.dao;
 import com.example.study.pojo.Department;
 import com.example.study.pojo.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +17,7 @@ import java.util.Map;
  * Creat by GG
  * Date on 2020/3/13  9:40 下午
  */
-
+@Repository
 public class EmployeeDao {
     //模拟数据
     private static Map<Integer, Employee> employees = null;
