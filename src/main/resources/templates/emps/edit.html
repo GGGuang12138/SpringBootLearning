@@ -44,43 +44,45 @@
 
 	<body>
 		<div th:insert="~{commons :: navBar}"></div>
-
 		<div class="container-fluid">
 			<div class="row">
-<!--				给组件传递参数-->
+				<!--				给组件传递参数-->
 				<div th:insert="~{commons :: sideBar(active='list.html')}"></div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-					<h2><a class="btn btn-success" th:href="@{/add.html}">添加员工</a></h2>
-					<div class="table-responsive">
-						<table class="table table-striped table-sm">
-							<thead>
-								<tr>
-									<th>id</th>
-									<th>name</th>
-									<th>email</th>
-									<th>gender</th>
-									<th>department</th>
-									<th>birth</th>
-									<th>操作</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="emp:${emps}">
-									<td th:text="${emp.getId()}"></td>
-									<td th:text="${emp.getName()}"></td>
-									<td th:text="${emp.getEmail()}"></td>
-									<td th:text="${emp.getGender()==0?'女':'男'}"></td>
-									<td th:text="${emp.getDepartment().getDepartmentName()}"></td>
-									<td th:text="${#dates.format(emp.getBirth(),'dd/MM/yyyy')}"></td>
-									<td>
-										<a class="btn btn-sm btn-primary" th:href="@{edit.html/}+${emp.getId()}">编辑</a>
-										<a class="btn btn-sm btn-danger" th:href="@{delete/}+${emp.getId()}">删除</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+					<form th:action="@{/add.html}" method="post">
+						<input type="hidden" name="id" th:value="${emp.getId()}">
+						<div class="form-group">
+							<label>Name</label>
+							<input th:value="${emp.getName()}" type="text" name="name" class="form-control"  placeholder="LastName">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input th:value="${emp.getEmail()}"type="email" name="email" class="form-control" placeholder="Email Address">
+						</div>
+						<div class="form-group">
+							<label>Gender</label>
+							<br>
+							<label class="checkbox-inline">
+								<input th:checked="${emp.getGender()==1}" type="checkbox" name = "gender" value="1"> 男
+							</label>
+							<label class="checkbox-inline">
+								<input th:checked="${emp.getGender()==0}"type="checkbox" name = "gender" value="0"> 女
+							</label>
+						</div>
+						<div class="form-group">
+							<label>Department</label>
+							<select class="form-control" name="department.id">
+								<option th:selected="${dept.getId()==emp.getDepartment().getId()}" th:each="dept:${departments}" th:text="${dept.getDepartmentName()}" th:value="${dept.getId()}"></option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Birth</label>
+							<input th:value="${#dates.format(emp.getBirth(),'yyyy-mm-dd')}" type="text" class="form-control" name="birth" placeholder="Birth">
+						</div>
+						<button type="submit" class="btn btn-default btn-success">完成</button>
+					</form>
 				</main>
+
 			</div>
 		</div>
 
