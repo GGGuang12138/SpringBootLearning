@@ -3,10 +3,12 @@ server:
 
 # 关闭模版引擎缓存
 # 国际化
+# 时间格式
 spring:
   thymeleaf:
     cache: false
   messages:
     basename: i18n.login
-
+  mvc:
+    date-format: yyyy-mm-dd
 

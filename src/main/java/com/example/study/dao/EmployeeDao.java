@@ -24,11 +24,11 @@ public class EmployeeDao {
 
     static {
         employees = new HashMap<Integer, Employee>();
-        employees.put(1001,new Employee(1001,"1号","10086@qq.com",0,new Department(101,"1号部")));
-        employees.put(1002,new Employee(1002,"2号","10087@qq.com",1,new Department(102,"2号部")));
-        employees.put(1003,new Employee(1003,"3号","10088@qq.com",0,new Department(103,"3号部")));
-        employees.put(1004,new Employee(1004,"4号","10089@qq.com",1,new Department(104,"4号部")));
-        employees.put(1005,new Employee(1005,"5号","10085@qq.com",0,new Department(105,"5号部")));
+        employees.put(1001,new Employee(1001,"1号","10086@qq.com",0,new Department(101,"1号部门")));
+        employees.put(1002,new Employee(1002,"2号","10087@qq.com",1,new Department(102,"2号部门")));
+        employees.put(1003,new Employee(1003,"3号","10088@qq.com",0,new Department(103,"3号部门")));
+        employees.put(1004,new Employee(1004,"4号","10089@qq.com",1,new Department(104,"4号部门")));
+        employees.put(1005,new Employee(1005,"5号","10085@qq.com",0,new Department(105,"5号部门")));
 
     }
     @Autowired

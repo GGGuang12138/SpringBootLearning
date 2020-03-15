@@ -33,11 +33,5 @@ public class Employee {
         this.department = department;
         this.birth = new Date();
     }
-    public Employee(Integer id, String name, String email, Integer gender, Integer departmentId) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.gender = gender;
-        this.birth = new Date();
-    }
+
 }
