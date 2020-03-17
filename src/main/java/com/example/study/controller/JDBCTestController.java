@@ -1,12 +1,12 @@
 package com.example.study.controller;
 
+import com.example.study.mapper.AdminMapper;
+import com.example.study.model.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Creat by GG
@@ -16,14 +16,13 @@ import java.util.Map;
 public class JDBCTestController {
 
     @Autowired
-    JdbcTemplate jdbcTemplate;
-
+    private AdminMapper adminMapper;
 
     @GetMapping("/test")
-    public List<Map<String,Object>> list(){
-        String sql = "select * from sys_role";
-        List<Map<String, Object>> mapList = jdbcTemplate.queryForList(sql);
-        return mapList;
+    public List<Admin> list(){
+
+        List<Admin> adminList = adminMapper.selectAll();
+        return adminList;
 
     }
 }
