@@ -4,6 +4,7 @@ server:
 # 关闭模版引擎缓存
 # 国际化
 # 时间格式
+# 连接数据库
 spring:
   thymeleaf:
     cache: false
@@ -11,4 +12,8 @@ spring:
     basename: i18n.login
   mvc:
     date-format: yyyy-mm-dd
-
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/wanghuan?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
