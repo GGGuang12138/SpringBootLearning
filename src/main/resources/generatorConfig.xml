@@ -19,5 +19,6 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.study.mapper" targetProject="src/main/java"/>
 
         <table tableName="admin" domainObjectName="Admin" />
+        <table tableName="doctor_user" domainObjectName="DoctorUser" />
     </context>
 </generatorConfiguration>
