@@ -26,26 +26,26 @@ public class EmployeeController {
     @Autowired
     private DepartmentDao departmentDao;
     //员工列表
-    @RequestMapping("/list.html")
+    @RequestMapping("/emps/list.html")
     public String list(Model model){
         Collection<Employee> employees = employeeDao.selectAll();
         model.addAttribute("emps",employees);
         return "/emps/list";
     }
     //添加页面
-    @GetMapping("/add.html")
+    @GetMapping("/emps/add.html")
     public String addEmpPage(Model model){
         model.addAttribute("departments",departmentDao.selectAll());
         return "/emps/add";
     }
     //完成添加
-    @PostMapping("/add.html")
+    @PostMapping("/emps/add.html")
     public String addEmp(Employee employee){
         employeeDao.save(employee);
         return "redirect:/list.html";
     }
     //编辑页面
-    @GetMapping("/edit.html/{id}")
+    @GetMapping("/emps/edit.html/{id}")
     public String editEmpPage(@PathVariable(name = "id")Integer id, Model model){
         Employee employee = employeeDao.selectById(id);
         model.addAttribute("emp",employee);
@@ -53,13 +53,13 @@ public class EmployeeController {
         return "/emps/edit";
     }
     //完成编辑
-    @PostMapping("/edit.html")
+    @PostMapping("/emps/edit.html")
     public String editEmp(Employee employee){
         employeeDao.save(employee);
         return "redirect:/list.html";
     }
     //删除员工
-    @GetMapping("/delete/{id}")
+    @GetMapping("/emps/delete/{id}")
     public String delete(@PathVariable(name = "id")Integer id){
         employeeDao.deleteById(id);
         return "redirect:/list.html";

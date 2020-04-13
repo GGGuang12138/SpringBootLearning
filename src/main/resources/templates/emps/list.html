@@ -50,7 +50,7 @@
 <!--				给组件传递参数-->
 				<div th:insert="~{commons :: sideBar(active='list.html')}"></div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-					<h2><a class="btn btn-success" th:href="@{/add.html}">添加员工</a></h2>
+					<h2><a class="btn btn-success" th:href="@{/emps/add.html}">添加员工</a></h2>
 					<div class="table-responsive">
 						<table class="table table-striped table-sm">
 							<thead>
@@ -73,8 +73,8 @@
 									<td th:text="${emp.getDepartment().getDepartmentName()}"></td>
 									<td th:text="${#dates.format(emp.getBirth(),'dd/MM/yyyy')}"></td>
 									<td>
-										<a class="btn btn-sm btn-primary" th:href="@{edit.html/}+${emp.getId()}">编辑</a>
-										<a class="btn btn-sm btn-danger" th:href="@{delete/}+${emp.getId()}">删除</a>
+										<a class="btn btn-sm btn-primary" th:href="@{/emps/edit.html/}+${emp.getId()}">编辑</a>
+										<a class="btn btn-sm btn-danger" th:href="@{/emps/delete/}+${emp.getId()}">删除</a>
 									</td>
 								</tr>
 							</tbody>
